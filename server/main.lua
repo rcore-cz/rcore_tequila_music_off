@@ -6,11 +6,19 @@ AddEventHandler(triggerName('playerSpawned'), function()
 end)
 
 RegisterCommand('tequilaoff', function()
-    tequilaState = true
-    TriggerClientEvent(triggerName('sync'), -1, true)
-end)
+    if IsPlayerAceAllowed(source, "rcore_tequila_music_off.tequilaoff") then
+        tequilaState = true
+        TriggerClientEvent(triggerName('sync'), -1, true)
+    else
+        TriggerClientEvent("chatMessage", source, "^1Insufficient Permissions.")
+    end
+end, true)
 
 RegisterCommand('tequilaon', function()
-    tequilaState = false
-    TriggerClientEvent(triggerName('sync'), -1, false)
-end)
+    if IsPlayerAceAllowed(source, "rcore_tequila_music_off.tequilaon") then
+        tequilaState = false
+        TriggerClientEvent(triggerName('sync'), -1, false)
+    else
+        TriggerClientEvent("chatMessage", source, "^1Insufficient Permissions.")
+    end
+end, true)
