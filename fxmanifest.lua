@@ -32,10 +32,6 @@ shared_scripts {
     'shared/*.lua',
 }
 
-dependencies {
-    'rcore'
-}
-
 
 
 
